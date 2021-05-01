@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
 
             [
                 'text' => 'Transaksi',
-                'url' => '#',
+                'url' => 'transaksi',
                 'icon' => 'fas fa-fw fa-cash-register'
             ],
             [
@@ -70,8 +70,34 @@ class AppServiceProvider extends ServiceProvider
             ],
         );
     }
- 
-  
+    else if ($roles_id=='User') {
+        $event->menu->add(
+            [
+                'text' => 'Barang',
+                'url' => 'product',
+                'icon' => 'fas fa-fw fa-archive'
+            ],
+            [
+                'text' => 'Pembayaran',
+                'url' => '#',
+                'icon' => 'fas fa-fw fa-cash-register'
+            ],
+            [
+                'text' => 'History Pembayaran',
+                'url' => '#',
+                'icon' => 'fas fa-fw fa-history'
+            ]
+        );
+    }
+    else {
+        $event->menu->add(
+            [
+                'text' => 'History Pembayaran',
+                'url' => 'history',
+                'icon' => 'fas fa-fw fa-history'
+            ]
+        );
+    }
  
 });
 }   
